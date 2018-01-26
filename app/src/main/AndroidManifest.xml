@@ -20,8 +20,17 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/LoginTheme"></activity>
+            android:label="Sign In"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:name=".SignupActivity"
+            android:label="Sign Up"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mdg.appdroid.foodona.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>
