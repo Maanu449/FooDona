@@ -25,11 +25,11 @@ public class SplashActivity extends Activity {
 
         //creating the list of quotes to be randomly displayed each time app is launched
         String quotesList[] = {
-                "This is IITR",
-                "Shut up",
-                "Swag of MDG",
-                "Waste your time in reading this quote",
-                "#Bakchodi"
+                "Numbers dont matter whn it comes to giving !!!",
+                "We make a living by what we get\nbut We make a life by what we give ...",
+                "Imagine the smile you are creating ...",
+                "Donating food is donating life ...",
+                "Let the human in you come alive !!!"
 
         };
 
