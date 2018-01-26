@@ -42,8 +42,6 @@ public class SplashActivity extends Activity {
         String quote = quotesList[n];
         quotes.setText(quote);
 
-
-
         new Handler().postDelayed(new Runnable() {
 
             /*
