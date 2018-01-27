@@ -1,11 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mdg.appdroid.foodona.LoginActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="tab1 signup"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+        <Spinner
+        android:id="@+id/type_of_organisation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:scrollbarSize="45dp"
+        android:entries="@array/organisation_arrays"
+         />
+
+        <EditText
+            android:id="@+id/id_organisationName_tab1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Enter Organisation Name"
+            android:inputType="text" />
+
+
+        <EditText
+            android:id="@+id/id_address_SignUpActivity"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:hint="Enter Address" />
+
+        <EditText
+            android:id="@+id/id_editEmail_SignUpActivity"
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:hint="Enter Email" />
+
+        <EditText
+            android:id="@+id/id_editPassword_SignUpActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:password="true"
+            android:hint="Set Password" />
+
+        <EditText
+            android:id="@+id/id_phoneNo._SignUpActivity"
+            android:layout_width="match_parent"
+            android:inputType="phone"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:hint="Enter Phone No." />
+
+        <Button
+            android:id="@+id/id_buttonRegister_SignUpActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:text="REGISTER ORGANISATION" />
+
+        <TextView
+            android:id="@+id/id_textView_SignUpActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textColor="@android:color/holo_red_dark" />
+
+           </LinearLayout>
+</ScrollView>

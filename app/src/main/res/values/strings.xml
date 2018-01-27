@@ -11,4 +11,10 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="tab_text_3">Tab 3</string>
     <string name="title_activity_signup_main">SignupMainActivity</string>
+    <string-array name="organisation_arrays">
+        <item>NGO</item>
+        <item>Orphanage</item>
+        <item>Old Age Home</item>
+        <item>Apna Ghar</item>
+    </string-array>
 </resources>
