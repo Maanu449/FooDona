@@ -7,15 +7,15 @@ import android.widget.RatingBar;
  */
 
 public class CharityHotelListItem {
-    public String hotel_name,hotel_address;
-    public int hotel_pic_url,hotel_phone;
+    public String hotel_name,hotel_address,hotel_phone;
+    public int hotel_pic_url;
 
     public CharityHotelListItem(){
 
     }
 
 
-    public CharityHotelListItem(String hotel_name, String hotel_address, int hotel_pic_url, int hotel_phone, float ratingBar) {
+    public CharityHotelListItem(String hotel_name, String hotel_address, int hotel_pic_url, String hotel_phone) {
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
         this.hotel_pic_url = hotel_pic_url;
@@ -47,11 +47,11 @@ public class CharityHotelListItem {
         this.hotel_pic_url = hotel_pic_url;
     }
 
-    public int getHotel_phone() {
+    public String getHotel_phone() {
         return hotel_phone;
     }
 
-    public void setHotel_phone(int hotel_phone) {
+    public void setHotel_phone(String hotel_phone) {
         this.hotel_phone = hotel_phone;
     }
 

@@ -40,6 +40,8 @@ public class CharityHotelList extends AppCompatActivity implements NavigationVie
     public DatabaseReference databaseReference;
     public List<CharityHotelListItem> list;
     public HotelListTextAdapter textAdapter;
+    public String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +49,11 @@ public class CharityHotelList extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         list = new ArrayList<>();
 
 
-        textAdapter = new HotelListTextAdapter(CharityHotelList.this,list);
+        textAdapter = new HotelListTextAdapter(CharityHotelList.this, list);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -65,38 +67,40 @@ public class CharityHotelList extends AppCompatActivity implements NavigationVie
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
-
         DatabaseReference upload = databaseReference.child("hotel").child("upload");
         upload.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String uid = ds.getKey();
+                    uid = ds.getKey();
                     DatabaseReference food = databaseReference.child("hotel").child("user").child(uid);
                     food.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String name = dataSnapshot.child("HotelName").getValue(String.class);
                             String address = dataSnapshot.child("Address").getValue(String.class);
-                            int phone = dataSnapshot.child("Phone").getValue(int.class);
-                                final CharityHotelListItem m = new CharityHotelListItem();
-                                m.setHotel_name(name);
-                                m.setHotel_address(address);
-                                m.setHotel_phone(phone);
-                                list.add(m);
-                                textAdapter.notifyDataSetChanged();
+                            String phone = dataSnapshot.child("Phone").getValue(String.class);
+                            final CharityHotelListItem m = new CharityHotelListItem();
+                            m.setHotel_name(name);
+                            m.setHotel_address(address);
+                            m.setHotel_phone(phone);
+                            list.add(m);
+                            textAdapter.notifyDataSetChanged();
                         }
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
 
                         }
-                    });}}
+                    });
+                }
+            }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
-            }});
+            }
+        });
 
         RecyclerView.LayoutManager recycler = new LinearLayoutManager(CharityHotelList.this);
         recyclerView.setLayoutManager(recycler);
@@ -216,8 +220,8 @@ public class CharityHotelList extends AppCompatActivity implements NavigationVie
             }
 
             Log.d(TAG, "getItemCount: " + String.valueOf(arr));
-//            return arr;
-            return 2;
+            return arr;
+
         }
 
 
@@ -239,17 +243,12 @@ public class CharityHotelList extends AppCompatActivity implements NavigationVie
 
             @Override
             public void onClick(View v) {
-//                if (v.getId() == hotel_name.getId()){
-//                    Intent intent = new Intent(v.getContext(), MemberEditFood.class);
-//                    int position = (int)upload.getTag();
-//                    intent.putExtra("passmeal",meal);
-//                    intent.putExtra("passdate",date);
-//                    intent.putExtra("oldDate",oldDate);
-//                    intent.putExtra("position",position);
-//                    intent.putExtra("item",list.get(position).getUpload());
-//                    startActivity(intent);
-//                    finish();
-
+                if (v.getId() == hotel_name.getId() || v.getId() == hotel_address.getId() || v.getId() == hotel_phone.getId() || v.getId() == hotel_pic.getId()) {
+                    Intent intent = new Intent(v.getContext(), CharityHotelDescription.class);
+                    intent.putExtra("passuid", uid);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
     }
