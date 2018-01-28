@@ -16,6 +16,8 @@ public class Charity_SignUP extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.tab2_sign_up,container,false);
+        View view=inflater.inflate(R.layout.tab2_sign_up,null);
+
+        return view;
     }
 }

@@ -21,6 +21,8 @@ public class Hotel_SignUP extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.tab1_sign_up,null);
 
+
+
         return view;
     }
 }
