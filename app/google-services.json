@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "397036488235",
+    "firebase_url": "https://foodona.firebaseio.com",
+    "project_id": "foodona",
+    "storage_bucket": "foodona.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397036488235:android:319b32a28d912d3c",
+        "android_client_info": {
+          "package_name": "com.mdg.appdroid.foodona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397036488235-brpcpt3548imv7vcor7kf0sgptcbtt15.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mdg.appdroid.foodona",
+            "certificate_hash": "a9672b520e9fef3620e81354bf41828119093016"
+          }
+        },
+        {
+          "client_id": "397036488235-efo73i4g70dhsknuebc2860olpjjv709.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBXo9FnJVG3X68vtAM_Oa488Ja9a8w8vE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397036488235-efo73i4g70dhsknuebc2860olpjjv709.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
