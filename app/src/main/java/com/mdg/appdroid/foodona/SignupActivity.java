@@ -1,8 +1,6 @@
 package com.mdg.appdroid.foodona;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,7 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_main);
+        setContentView(R.layout.activity_signup);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,7 +45,6 @@ public class SignupActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
     }
 
 
@@ -96,7 +95,7 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_signup_main, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_signup, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
@@ -112,10 +111,12 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             switch (position){
-                case 0: Tab1_SignUP tab1_signUP=new Tab1_SignUP();
-                return tab1_signUP;
-                case 1: Tab2_SignUP tab2_signUP=new Tab2_SignUP();
-                return tab2_signUP;
+                case 0: {
+                    Hotel_SignUP hotel_signUP=new Hotel_SignUP();
+                    return hotel_signUP;
+                }
+                case 1: Charity_SignUP charity_signUP=new Charity_SignUP();
+                return charity_signUP;
             }
 
             return null;
@@ -123,7 +124,7 @@ public class SignupActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 2 total pages.
             return 2;
         }
     }

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * Created by ktubuntu on 27/1/18.
  */
 
-public class Tab2_SignUP extends Fragment {
+public class Charity_SignUP extends Fragment {
 
     @Nullable
     @Override

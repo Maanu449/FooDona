@@ -13,15 +13,14 @@
 
 
         <Spinner
-        android:id="@+id/type_of_organisation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
+            android:id="@+id/type_of_organisation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:scrollbarSize="45dp"
-        android:entries="@array/organisation_arrays"
-         />
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:entries="@array/organisation_arrays"
+            android:scrollbarSize="45dp" />
 
         <EditText
             android:id="@+id/id_organisationName_tab1"
@@ -36,24 +35,24 @@
         <EditText
             android:id="@+id/id_address_SignUpActivity"
             android:layout_width="match_parent"
-            android:inputType="text"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:hint="Enter Address" />
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:hint="Enter Address"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/id_editEmail_SignUpActivity"
             android:layout_width="match_parent"
-            android:inputType="textEmailAddress"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:hint="Enter Email" />
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/id_editPassword_SignUpActivity"
@@ -61,30 +60,54 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:password="true"
-            android:hint="Set Password" />
+            android:hint="Set Password"
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/id_phoneNo._SignUpActivity"
             android:layout_width="match_parent"
-            android:inputType="phone"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:hint="Enter Phone No." />
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:hint="Enter Phone No."
+            android:inputType="phone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Click button to add Location"
+                android:padding="8dp" />
+
+            <ImageButton
+                android:id="@+id/id_addLocn_Charity_ImgBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:padding="10dp"
+                android:src="@mipmap/ic_add_location_black_24dp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/id_buttonRegister_SignUpActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:textColor="@color/white"
             android:layout_marginRight="15dp"
             android:layout_marginTop="30dp"
             android:background="@color/colorPrimary"
-            android:text="REGISTER ORGANISATION" />
+            android:text="REGISTER ORGANISATION"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/id_textView_SignUpActivity"
@@ -94,5 +117,5 @@
             android:gravity="center"
             android:textColor="@android:color/holo_red_dark" />
 
-           </LinearLayout>
+    </LinearLayout>
 </ScrollView>
