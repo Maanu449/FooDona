@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,19 +25,33 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class CharityHotelList extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+public class CharityHotelList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    public DatabaseReference databaseReference;
+    public List<CharityHotelListItem> list;
+    public HotelListTextAdapter textAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_hotel_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        list = new ArrayList<>();
+
+
+        textAdapter = new HotelListTextAdapter(CharityHotelList.this,list);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +61,46 @@ public class CharityHotelList extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+
+
+        DatabaseReference upload = databaseReference.child("hotel").child("upload");
+        upload.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String uid = ds.getKey();
+                    DatabaseReference food = databaseReference.child("hotel").child("user").child(uid);
+                    food.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            String name = dataSnapshot.child("HotelName").getValue(String.class);
+                            String address = dataSnapshot.child("Address").getValue(String.class);
+                            int phone = dataSnapshot.child("Phone").getValue(int.class);
+                                final CharityHotelListItem m = new CharityHotelListItem();
+                                m.setHotel_name(name);
+                                m.setHotel_address(address);
+                                m.setHotel_phone(phone);
+                                list.add(m);
+                                textAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });}}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }});
+
+        RecyclerView.LayoutManager recycler = new LinearLayoutManager(CharityHotelList.this);
+        recyclerView.setLayoutManager(recycler);
+        recyclerView.setAdapter(textAdapter);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -145,8 +200,6 @@ public class CharityHotelList extends AppCompatActivity
             holder.hotel_phone.setTag(position);
             holder.hotel_pic.setImageAlpha(mylist.getHotel_pic_url());
             holder.hotel_pic.setTag(position);
-            holder.ratingBar.setRating(mylist.getRatingBar());
-            holder.ratingBar.setTag(position);
         }
 
         @Override
@@ -171,7 +224,6 @@ public class CharityHotelList extends AppCompatActivity
         public class HotelListTextHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             public TextView hotel_name, hotel_address, hotel_phone;
             public ImageView hotel_pic;
-            public RatingBar ratingBar;
 
             public HotelListTextHolder(View itemView) {
                 super(itemView);
@@ -183,8 +235,6 @@ public class CharityHotelList extends AppCompatActivity
                 hotel_phone.setOnClickListener(this);
                 hotel_pic = itemView.findViewById(R.id.hotel_pic);
                 hotel_pic.setOnClickListener(this);
-                ratingBar = itemView.findViewById(R.id.rating);
-                ratingBar.setOnClickListener(this);
             }
 
             @Override

@@ -9,7 +9,6 @@ import android.widget.RatingBar;
 public class CharityHotelListItem {
     public String hotel_name,hotel_address;
     public int hotel_pic_url,hotel_phone;
-    public float ratingBar;
 
     public CharityHotelListItem(){
 
@@ -22,7 +21,6 @@ public class CharityHotelListItem {
         this.hotel_pic_url = hotel_pic_url;
         this.hotel_phone = hotel_phone;
 
-        this.ratingBar = ratingBar;
     }
 
     public String getHotel_name() {
@@ -57,11 +55,4 @@ public class CharityHotelListItem {
         this.hotel_phone = hotel_phone;
     }
 
-    public float getRatingBar() {
-        return ratingBar;
-    }
-
-    public void setRatingBar(float ratingBar) {
-        this.ratingBar = ratingBar;
-    }
 }

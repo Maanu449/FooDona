@@ -46,13 +46,6 @@
                     android:text="Name"
                     android:layout_alignParentTop="true"/>
 
-                <RatingBar
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/rating"/>
 
 
                 <TextView

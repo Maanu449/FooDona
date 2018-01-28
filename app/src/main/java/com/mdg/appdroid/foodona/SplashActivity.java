@@ -14,7 +14,7 @@ import java.util.Random;
 public class SplashActivity extends Activity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 1000;
+    private static int SPLASH_TIME_OUT = 4000;
 
 
     @Override
