@@ -31,6 +31,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mdg.appdroid.foodona.LoginActivity" />
         </activity>
+        <activity
+            android:name=".CharityHotelList"
+            android:label="@string/title_activity_charity_hotel_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

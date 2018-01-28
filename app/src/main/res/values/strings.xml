@@ -17,4 +17,8 @@
         <item>Old Age Home</item>
         <item>Apna Ghar</item>
     </string-array>
+    <string name="title_activity_charity_hotel_list">CharityHotelList</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
